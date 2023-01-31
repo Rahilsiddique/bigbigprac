@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import PocketBase from "pocketbase";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const GlobalContext = createContext();
 
@@ -26,10 +26,6 @@ export const GlobalProvider = ({ children }) => {
     localStorage.setItem("basicInfo", { email: email });
   };
 
-  const getLoggedInUserData = () => {
-    return JSON.parse(localStorage.getItem("pocketbase_auth"));
-  };
-
   return (
     <GlobalContext.Provider
       value={{
@@ -38,8 +34,7 @@ export const GlobalProvider = ({ children }) => {
         setLoginData,
         signUpData,
         setSignUpData,
-        isUserAuthenticated,
-        getLoggedInUserData
+        isUserAuthenticated
       }}
     >
       {children}

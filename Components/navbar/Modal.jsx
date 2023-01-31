@@ -1,16 +1,13 @@
 import React from "react";
 
 const Modal = () => {
-    return <><label htmlFor="my-modal" className="btn">open modal</label> <input type="checkbox" id="my-modal" className="modal-toggle" />
-        <div className="modal">
-            <div className="modal-box">
-                <h3 className="font-bold text-lg">Congratulations random Internet user!</h3>
-                <p className="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
-                <div className="modal-action">
-                    <label htmlFor="my-modal" className="btn">Yay!</label>
-                </div>
-            </div>
-        </div></>;
+    return <><div className="dropdown dropdown-end">
+  <label tabIndex={0} className="btn m-1">Click</label>
+  <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+    <li><a>Item 1</a></li>
+    <li><a>Item 2</a></li>
+  </ul>
+</div></>;
 };
 
 export default Modal;

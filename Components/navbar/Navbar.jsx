@@ -8,7 +8,6 @@ import Modal from "./Modal";
 
 const Navbar = () => {
   const { getLoggedInUserData } = useContext(GlobalContext)
-  console.log(getLoggedInUserData()?.model.email);
   const [visibleLogin, setVisibleLogin] = useState(false);
   const [visibleSignUp, setVisibleSignUp] = useState(false);
   const handleSignUp = () => setVisibleSignUp(p => !p)
@@ -17,7 +16,7 @@ const Navbar = () => {
     <>
       <div className="flex items-center justify-between drop-shaadow-lg md:p-3 p-2">
         <div>LOGO</div>
-        {getLoggedInUserData()?.model.email ? <Modal/> : <div className="flex gap-x-5">
+        {JSON.parse(localStorage.getItem("pocketbase_auth"))?.model.email ? <Modal/> : <div className="flex gap-x-5">
           <button className="btn" onClick={handleSignUp}>
             Sign up
           </button>
