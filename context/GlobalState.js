@@ -26,6 +26,10 @@ export const GlobalProvider = ({ children }) => {
     localStorage.setItem("basicInfo", { email: email });
   };
 
+  const getLoggedInUserData = () => {
+    return JSON.parse(localStorage.getItem("pocketbase_auth"));
+  };
+
   return (
     <GlobalContext.Provider
       value={{
@@ -34,7 +38,8 @@ export const GlobalProvider = ({ children }) => {
         setLoginData,
         signUpData,
         setSignUpData,
-        isUserAuthenticated
+        isUserAuthenticated,
+        getLoggedInUserData
       }}
     >
       {children}
